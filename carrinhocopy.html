@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beauren Cosméticos</title>
+  <link rel="stylesheet" href="css/bootstrap.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+</head>
+<!-- jsPDF para gerar PDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<!-- QRCode.js para gerar QR Code -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<!-- <script src="js/cart.js"></script> -->
+
+<body>
+  <!-- Navbar -->
+
+  <nav class="navbar navbar-expand-lg navbar-rose">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="img/Logo.png" alt="logo" class="logo-navbar" /></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active link-dourado" aria-current="page" href="home.html">Início</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link link-dourado" href="#">Promoções</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle link-dourado" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Mais
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item text-dourado" href="#">Minha conta</a>
+              </li>
+              <li>
+                <a class="dropdown-item text-dourado" href="#">Meus pedidos</a>
+              </li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li>
+                <a class="dropdown-item text-dourado" href="#">Portal do revendedor</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex w-100 justify-content-center" role="search">
+          <div class="input-group" style="width: 100%; max-width: 500px">
+            <input type="search" class="form-control" placeholder="O que você está buscando hoje?"
+              aria-label="Buscar" />
+            <button class="input-group-text lupa-btn" type="submit" aria-label="Buscar">
+              <i class="bi bi-search lupa-dourada"></i>
+              <div class="d-flex align-items-center ms-auto">
+                <button id="cart-button" class="btn position-relative ms-3">
+                  <i class="bi bi-cart-fill fs-4"></i>
+                  <span id="cart-count"
+                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  </span>
+                </button>
+              </div>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Conteúdo do Carrinho -->
+  <main class="container py-5">
+    <h1 class="titulo-secao">Meu Carrinho</h1>
+    <div class="table-responsive bg-white p-3 rounded shadow-sm mb-4">
+      <table class="table align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>Produto</th>
+            <th>Qtd.</th>
+            <th>Preço Unit.</th>
+            <th>Subtotal</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="cart-items">
+          <!-- Preenchido por JS -->
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-end">
+        <h4>Total: R$ <span id="cart-total">0.00</span></h4>
+      </div>
+    </div>
+
+    <!-- Cálculo de Frete -->
+    <div class="bg-white p-3 rounded shadow-sm mb-4">
+      <h5 class="text-dourado">Calcular Frete</h5>
+      <form id="shipping-form" class="row g-2 align-items-end">
+        <div class="col-auto">
+          <label class="form-label" for="zipcode">CEP</label>
+          <input type="text" id="zipcode" class="form-control" placeholder="00000-000" required />
+        </div>
+        <div class="col-auto">
+          <button class="btn btn-dourado">Calcular</button>
+        </div>
+        <div class="col-12">
+          <p>Frete: R$ <span id="shipping-cost">0.00</span></p>
+        </div>
+      </form>
+    </div>
+
+    <!-- Formas de Pagamento -->
+    <div class="bg-white p-3 rounded shadow-sm mb-4">
+      <h5 class="text-dourado">Forma de Pagamento</h5>
+      <form id="payment-form">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="paymentMethod" id="pmCard" value="card" checked />
+          <label class="form-check-label" for="pmCard">Cartão de Crédito</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="paymentMethod" id="pmBoleto" value="boleto" />
+          <label class="form-check-label" for="pmBoleto">Boleto Bancário</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="paymentMethod" id="pmPix" value="pix" />
+          <label class="form-check-label" for="pmPix">Pix</label>
+        </div>
+
+        
+
+        <!-- Campos específicos -->
+        <div id="card-info" class="mt-3">
+          <input type="text" class="form-control mb-2" placeholder="Número do Cartão" />
+          <input type="text" class="form-control mb-2" placeholder="Validade (MM/AA)" />
+          <input type="text" class="form-control" placeholder="CVV" />
+        </div>
+        <div id="boleto-info" class="mt-3 d-none">
+          <p>Você receberá um boleto em seu e-mail.</p>
+        </div>
+        <div id="pix-info" class="mt-3 d-none text-center">
+          <button id="btn-pix" type="button" class="btn btn-outline-dourado mb-2">
+            Gerar QR Code PIX
+          </button>
+          <div id="qrcode"></div>
+        </div>
+        <!-- Botão de Boleto -->
+        <div id="boleto-button" class="mt-3 d-none">
+          <button id="btn-boleto" type="button" class="btn btn-outline-dourado">
+            Imprimir Boleto
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Espaço entre a navbar e o footer -->
+  <footer class="py-5 footer-beauren">
+    <div class="container-fluid px-5">
+
+      <!-- LINHA PRINCIPAL COM DUAS COLUNAS LADO A LADO (ESQUERDA E DIREITA) -->
+      <div class="d-flex flex-column flex-md-row justify-content-between">
+
+        <!-- COLUNA ESQUERDA -->
+        <div class="mb-3">
+          <h5 class="text-dourado"><i class="bi bi-heart-fill" style="color: #B38B52; font-size: 24px;"></i>
+          </h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 link-footer">Nossa História</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 link-footer">Seja uma revendedora Beauren</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 link-footer">Pontos de venda</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 link-footer">Perguntas frequentes</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 link-footer">Política de Privacidade</a></li>
+          </ul>
+        </div>
+
+        <!-- COLUNA DIREITA (NEWSLETTER) -->
+        <div class="mb-3" style="max-width: 400px;">
+          <form>
+            <h5 class="text-dourado">Assine nossa newsletter</h5>
+            <p class="text-dourado">Resumo mensal das novidades interessantes que temos para oferecer.</p>
+            <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+              <input id="newsletter1" type="email" class="form-control" placeholder="Endereço de email">
+              <button class="btn btn-dourado" type="submit">Inscrever-se</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- RODAPÉ FINAL COM DIREITOS E ÍCONES -->
+
+
+      <div class="d-flex justify-content-center gap-4">
+        <a class="icon-footer" href="#"><i class="bi bi-instagram"></i></a>
+        <a class="icon-footer" href="#"><i class="bi bi-facebook"></i></a>
+        <a class="icon-footer" href="#"><i class="bi bi-whatsapp"></i></a>
+      </div>
+      <div class="text-center py-4 my-4 border-top">
+        <p class="text-dourado mb-3">© 2025 Beauren. Todos os direitos reservados.</p>
+      </div>
+  </footer>
+
+  <!-- Bibliotecas JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <!-- Script do Carrinho, Frete, Pagamento, Boleto e PIX -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Carrinho em localStorage
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      function updateCartCount() {
+        const count = cart.reduce((sum, i) => sum + i.qty, 0);
+        document.getElementById("cart-count").textContent = count;
+      }
+
+      function renderCart() {
+        const tbody = document.getElementById("cart-items");
+        tbody.innerHTML = "";
+        let total = 0;
+        cart.forEach((item) => {
+          total += item.price * item.qty;
+          tbody.innerHTML += `
+            <tr>
+              <td>${item.name}</td>
+              <td>${item.qty}</td>
+              <td>R$ ${(item.price * item.qty).toFixed(2)}</td>
+              <td>R$ ${(item.price * item.qty).toFixed(2)}</td>
+              <td>
+                <button class="btn btn-sm btn-outline-danger remove-item" data-id="${item.id
+            }">
+                  &times;
+                </button>
+              </td>
+            </tr>`;
+        });
+        document.getElementById("cart-total").textContent = total.toFixed(2);
+      }
+
+      function saveCart() {
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartCount();
+        renderCart();
+        updateGrandTotal();
+      }
+
+      // Adicionar ao carrinho
+      document.querySelectorAll(".add-to-cart").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          const id = btn.dataset.id;
+          const name = btn.dataset.name;
+          const price = parseFloat(btn.dataset.price);
+          const existing = cart.find((i) => i.id === id);
+          if (existing) existing.qty++;
+          else cart.push({ id, name, price, qty: 1 });
+          saveCart();
+        });
+      });
+
+      // Remover item
+      document.getElementById("cart-items").addEventListener("click", (e) => {
+        if (e.target.classList.contains("remove-item")) {
+          cart = cart.filter((i) => i.id !== e.target.dataset.id);
+          saveCart();
+        }
+      });
+
+      // Abre modal do carrinho
+      document.getElementById("cart-button").addEventListener("click", () => {
+        renderCart();
+        new bootstrap.Modal(document.getElementById("cartModal")).show();
+      });
+
+      updateCartCount();
+
+      // Cálculo de frete
+      function updateGrandTotal() {
+        const itemsTotal =
+          parseFloat(document.getElementById("cart-total").textContent) || 0;
+        const shipping =
+          parseFloat(document.getElementById("shipping-cost").textContent) ||
+          0;
+        document.getElementById("cart-total").textContent = (
+          itemsTotal + shipping
+        ).toFixed(2);
+      }
+
+      document
+        .getElementById("shipping-form")
+        .addEventListener("submit", (e) => {
+          e.preventDefault();
+          let cep = document
+            .getElementById("zipcode")
+            .value.replace(/\D/g, "");
+          let cost = cep.startsWith("0")
+            ? 15.0
+            : cep.startsWith("1")
+              ? 20.0
+              : 25.0;
+          document.getElementById("shipping-cost").textContent =
+            cost.toFixed(2);
+          updateGrandTotal();
+        });
+
+      // Toggle formas de pagamento
+      const methods = ["card", "boleto", "pix"];
+      methods.forEach((m) => {
+        document
+          .getElementById("pm" + m.charAt(0).toUpperCase() + m.slice(1))
+          .addEventListener("change", () => {
+            methods.forEach((x) => {
+              document.getElementById(x + "-info").classList.add("d-none");
+            });
+            const sel = document.querySelector(
+              'input[name="paymentMethod"]:checked'
+            ).value;
+            document.getElementById(sel + "-info").classList.remove("d-none");
+
+            // mostrar/ocultar botão boleto e pix
+            document
+              .getElementById("boleto-button")
+              .classList.toggle("d-none", sel !== "boleto");
+            document
+              .getElementById("pix-section")
+              .classList.toggle("d-none", sel !== "pix");
+          });
+      });
+
+      // Gerar boleto fake
+      document.getElementById("btn-boleto").addEventListener("click", () => {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        doc.setFontSize(16);
+        doc.text("Boleto de Teste Beauren", 20, 20);
+        doc.setFontSize(12);
+        doc.text(
+          "23790.00009 00123.456789 01234.567890 1 67890000010000",
+          20,
+          40
+        );
+        doc.text(
+          "Vencimento: 10/07/2025   Valor: R$ " +
+          document.getElementById("cart-total").textContent,
+          20,
+          50
+        );
+        doc.save("boleto_beauren.pdf");
+      });
+
+      // Gerar QR Code PIX
+      document.getElementById("btn-pix").addEventListener("click", () => {
+        const payloadPix =
+          "00020126580014BR.GOV.BCB.PIX0114+551199999999520400005303986540210005802BR5925Beauren Cosméticos6009SAO PAULO61080540900062070503***6304";
+        document.getElementById("qrcode").innerHTML = "";
+        new QRCode(document.getElementById("qrcode"), {
+          text: payloadPix,
+          width: 200,
+          height: 200,
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beauren Cosméticos</title>
+  <link rel="stylesheet" href="css/bootstrap.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-rose">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="img/Logo.png" alt="logo" class="logo-navbar" /></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active link-dourado" aria-current="page" href="#">Início</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link link-dourado" href="#">Promoções</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle link-dourado" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Mais
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item text-dourado" href="#">Minha conta</a>
+              </li>
+              <li>
+                <a class="dropdown-item text-dourado" href="#">Meus pedidos</a>
+              </li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li>
+                <a class="dropdown-item text-dourado" href="#">Portal do revendedor</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex w-100 justify-content-center" role="search">
+          <div class="input-group" style="max-width:500px; width:100%;">
+            <input class="form-control" type="search" placeholder="O que você está buscando hoje?" aria-label="Buscar">
+            <button class="input-group-text lupa-btn" type="submit" aria-label="Buscar">
+              <i class="bi bi-search lupa-dourada"></i>
+            </button>
+          </div>
+        </form>
+
+        <!-- Aqui, fora do form, coloque o botão do carrinho -->
+        <div class="d-flex align-items-center ms-3">
+          <button id="cart-button" class="btn position-relative" data-bs-toggle="modal" data-bs-target="#cartModal">
+            <i class="bi bi-cart-fill fs-4 text-dourado"></i>
+            <span id="cart-count"
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+          </button>
+        </div>
+
+      </div>
+      </form>
+    </div>
+    
+  </nav>
+
+  <div id="carouselExampleAutoplaying" class="carousel slide meu-carousel" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="img/Q3.jpg" class="d-block w-100" alt="banner1">
+      </div>
+      <div class="carousel-item">
+        <img src="img/banner 0.png" class="d-block w-100" alt="banner2">
+      </div>
+      <div class="carousel-item">
+        <img src="img/ChatGPT Image 9 de jun. de 2025, 21_59_04 (1).png" class="d-block w-100" alt="m1">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+
+
+  <!-- Seção: Produtos Mais Vendidos -->
+  <section class="container mt-5">
+    <h2 class="titulo-secao">Mais Vendidos</h2>
+    <div class="row">
+      <!-- Repita o bloco abaixo para cada produto -->
+      <div class="col-md-3 mb-4">
+        <div class="card h-100 card-borda-dourada">
+          <img src="img/P1.jpg" class="card-img-top" alt="Produto A1">
+          <div class="card-body">
+            <h5 class="card-title">Produto A1</h5>
+            <p class="card-text">Descrição do produto A1.</p>
+            <div class="d-flex gap-2">
+              <a href="#" class="btn btn-dourado add-to-cart" data-id="P1" data-name="Produto A1"
+                data-price="49.90">Comprar</a>
+              <a href="#" class="btn btn-outline-dourado">Detalhes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <div class="card h-100 card-borda-dourada">
+          <img src="img/A1.jpg" class="card-img-top" alt="Produto A1">
+          <div class="card-body">
+            <h5 class="card-title">Produto A1</h5>
+            <p class="card-text">Descrição do produto A1.</p>
+            <div class="d-flex gap-2">
+              <a href="#" class="btn btn-dourado add-to-cart" data-id="P1" data-name="Produto A1"
+                data-price="49.90">Comprar</a>
+              <a href="#" class="btn btn-outline-dourado">Detalhes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <div class="card h-100 card-borda-dourada">
+          <img src="img/E1.jpg" class="card-img-top" alt="Produto A1">
+          <div class="card-body">
+            <h5 class="card-title">Produto A1</h5>
+            <p class="card-text">Descrição do produto A1.</p>
+            <div class="d-flex gap-2">
+              <a href="#" class="btn btn-dourado add-to-cart" data-id="P1" data-name="Produto A1"
+                data-price="49.90">Comprar</a>
+              <a href="#" class="btn btn-outline-dourado">Detalhes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <div class="card h-100 card-borda-dourada">
+          <img src="img/G2.png" class="card-img-top" alt="Produto A1">
+          <div class="card-body">
+            <h5 class="card-title">Produto A1</h5>
+            <p class="card-text">Descrição do produto A1.</p>
+            <div class="d-flex gap-2">
+              <a href="#" class="btn btn-dourado add-to-cart" data-id="P1" data-name="Produto A1"
+                data-price="49.90">Comprar</a>
+              <a href="#" class="btn btn-outline-dourado">Detalhes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-3 mb-4">
+        <div class="card h-100 card-borda-dourada">
+          <img src="img/Q1.jpg" class="card-img-top" alt="Produto A1">
+          <div class="card-body">
+            <h5 class="card-title">Produto A1</h5>
+            <p class="card-text">Descrição do produto A1.</p>
+            <div class="d-flex gap-2">
+              <a href="#" class="btn btn-dourado add-to-cart" data-id="P1" data-name="Produto A1"
+                data-price="49.90">Comprar</a>
+              <a href="#" class="btn btn-outline-dourado">Detalhes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <div class="card h-100 card-borda-dourada">
+          <img src="img/K3.png" class="card-img-top" alt="Produto A1">
+          <div class="card-body">
+            <h5 class="card-title">Produto A1</h5>
+            <p class="card-text">Descrição do produto A1.</p>
+            <div class="d-flex gap-2">
+              <a href="#" class="btn btn-dourado add-to-cart" data-id="P1" data-name="Produto A1"
+                data-price="49.90">Comprar</a>
+              <a href="#" class="btn btn-outline-dourado">Detalhes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <div class="card h-100 card-borda-dourada">
+          <img src="img/R1.jpg" class="card-img-top" alt="Produto A1">
+          <div class="card-body">
+            <h5 class="card-title">Produto A1</h5>
+            <p class="card-text">Descrição do produto A1.</p>
+            <div class="d-flex gap-2">
+              <a href="#" class="btn btn-dourado add-to-cart" data-id="P1" data-name="Produto A1"
+                data-price="49.90">Comprar</a>
+              <a href="#" class="btn btn-outline-dourado">Detalhes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <div class="card h-100 card-borda-dourada">
+          <img src="img/s1.png" class="card-img-top" alt="Produto A1">
+          <div class="card-body">
+            <h5 class="card-title">Produto A1</h5>
+            <p class="card-text">Descrição do produto A1.</p>
+            <div class="d-flex gap-2">
+              <a href="#" class="btn btn-dourado add-to-cart" data-id="P1" data-name="Produto A1"
+                data-price="49.90">Comprar</a>
+              <a href="#" class="btn btn-outline-dourado">Detalhes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- COLUNA DO FILTRO -->
+  <!-- Filtro de preço centralizado -->
+  <div class="d-flex justify-content-center mt-4 mb-5">
+    <div class="col-12 col-sm-8 col-md-4">
+      <div class="p-3 border card-borda-dourada">
+        <h5 class="text-dourado text-center">Filtrar por Preço</h5>
+        <form>
+          <div class="mb-3">
+            <label for="precoMin" class="form-label">Preço mínimo</label>
+            <input type="number" class="form-control" id="precoMin" placeholder="Ex: 10">
+          </div>
+          <div class="mb-3">
+            <label for="precoMax" class="form-label">Preço máximo</label>
+            <input type="number" class="form-control" id="precoMax" placeholder="Ex: 100">
+          </div>
+          <button type="submit" class="btn btn-dourado w-100">Aplicar Filtro</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Seção: Novidades -->
+  <section class="container mt-5">
+    <h2 class="titulo-secao">Novidades</h2>
+    <div id="carouselNovidades" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <div class="row">
+            <!-- 4 cards por slide -->
+            <div class="col-md-3 mb-4">
+              <div class="card h-100 card-borda-dourada">
+                <img src="img/Shampoo.png" class="card-img-top" alt="Novidade 1">
+                <div class="card-body">
+                  <h5 class="card-title">Novidade 1</h5>
+                  <p class="card-text">Descrição.</p>
+                  <div class="d-flex gap-2">
+                    <a href="#" class="btn btn-dourado">Comprar</a>
+                    <a href="#" class="btn btn-outline-dourado">Detalhes</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-4">
+              <div class="card h-100 card-borda-dourada">
+                <img src="img/F1.png" class="card-img-top" alt="Novidade 1">
+                <div class="card-body">
+                  <h5 class="card-title">Novidade 2</h5>
+                  <p class="card-text">Descrição.</p>
+                  <div class="d-flex gap-2">
+                    <a href="#" class="btn btn-dourado">Comprar</a>
+                    <a href="#" class="btn btn-outline-dourado">Detalhes</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-4">
+              <div class="card h-100 card-borda-dourada">
+                <img src="img/D1.png" class="card-img-top" alt="Novidade 1">
+                <div class="card-body">
+                  <h5 class="card-title">Novidade 3</h5>
+                  <p class="card-text">Descrição.</p>
+                  <div class="d-flex gap-2">
+                    <a href="#" class="btn btn-dourado">Comprar</a>
+                    <a href="#" class="btn btn-outline-dourado">Detalhes</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-4">
+              <div class="card h-100 card-borda-dourada">
+                <img src="img/I1.png" class="card-img-top" alt="Novidade 1">
+                <div class="card-body">
+                  <h5 class="card-title">Novidade 4</h5>
+                  <p class="card-text">Descrição.</p>
+                  <div class="d-flex gap-2">
+                    <a href="#" class="btn btn-dourado">Comprar</a>
+                    <a href="#" class="btn btn-outline-dourado">Detalhes</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-md-3 mb-4">
+              <div class="card h-100 card-borda-dourada">
+                <img src="img/H1.png" class="card-img-top" alt="Novidade 5">
+                <div class="card-body">
+                  <h5 class="card-title">Novidade 5</h5>
+                  <p class="card-text">Descrição.</p>
+                  <div class="d-flex gap-2">
+                    <a href="#" class="btn btn-dourado">Comprar</a>
+                    <a href="#" class="btn btn-outline-dourado">Detalhes</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3 mb-4">
+              <div class="card h-100 card-borda-dourada">
+                <img src="img/B2.png" class="card-img-top" alt="Novidade 6">
+                <div class="card-body">
+                  <h5 class="card-title">Novidade 6</h5>
+                  <p class="card-text">Descrição.</p>
+                  <div class="d-flex gap-2">
+                    <a href="#" class="btn btn-dourado">Comprar</a>
+                    <a href="#" class="btn btn-outline-dourado">Detalhes</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3 mb-4">
+              <div class="card h-100 card-borda-dourada">
+                <img src="img/L2.png" class="card-img-top" alt="Novidade 7">
+                <div class="card-body">
+                  <h5 class="card-title">Novidade 7</h5>
+                  <p class="card-text">Descrição.</p>
+                  <div class="d-flex gap-2">
+                    <a href="#" class="btn btn-dourado">Comprar</a>
+                    <a href="#" class="btn btn-outline-dourado">Detalhes</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3 mb-4">
+              <div class="card h-100 card-borda-dourada">
+                <img src="img/M2.png" class="card-img-top" alt="Novidade 8">
+                <div class="card-body">
+                  <h5 class="card-title">Novidade 8</h5>
+                  <p class="card-text">Descrição.</p>
+                  <div class="d-flex gap-2">
+                    <a href="#" class="btn btn-dourado">Comprar</a>
+                    <a href="#" class="btn btn-outline-dourado">Detalhes</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Adicionar nova .carousel-item com nova .row para os 4 próximos cards -->
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselNovidades" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselNovidades" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        <span class="visually-hidden">Próximo</span>
+      </button>
+
+
+
+
+  </section>
+
+  <!-- Espaço entre a navbar e o footer -->
+  <div class="mt-5"></div>
+
+  <footer class="py-5 footer-beauren">
+    <div class="container-fluid px-5">
+
+      <!-- LINHA PRINCIPAL COM DUAS COLUNAS LADO A LADO (ESQUERDA E DIREITA) -->
+      <div class="d-flex flex-column flex-md-row justify-content-between">
+
+        <!-- COLUNA ESQUERDA -->
+        <div class="mb-3">
+          <h5 class="text-dourado"><i class="bi bi-heart-fill" style="color: #B38B52; font-size: 24px;"></i>
+          </h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 link-footer">Nossa História</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 link-footer">Seja uma revendedora Beauren</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 link-footer">Pontos de venda</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 link-footer">Perguntas frequentes</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 link-footer">Política de Privacidade</a></li>
+          </ul>
+        </div>
+
+        <!-- COLUNA DIREITA (NEWSLETTER) -->
+        <div class="mb-3" style="max-width: 400px;">
+          <form>
+            <h5 class="text-dourado">Assine nossa newsletter</h5>
+            <p class="text-dourado">Resumo mensal das novidades interessantes que temos para oferecer.</p>
+            <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+              <input id="newsletter1" type="email" class="form-control" placeholder="Endereço de email">
+              <button class="btn btn-dourado" type="submit">Inscrever-se</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- RODAPÉ FINAL COM DIREITOS E ÍCONES -->
+
+
+      <div class="d-flex justify-content-center gap-4">
+        <a class="icon-footer" href="#"><i class="bi bi-instagram"></i></a>
+        <a class="icon-footer" href="#"><i class="bi bi-facebook"></i></a>
+        <a class="icon-footer" href="#"><i class="bi bi-whatsapp"></i></a>
+      </div>
+      <div class="text-center py-4 my-4 border-top">
+        <p class="text-dourado mb-3">© 2025 Beauren. Todos os direitos reservados.</p>
+      </div>
+  </footer>
+
+  <!-- CSS do Bootstrap -->
+
+  <!-- Coloque no final do <body> -->
+  <div class="modal fade" id="cartModal" tabindex="-1" >
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Meu Carrinho</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Produto</th>
+                <th>Qtd.</th>
+                <th>Preço</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="cart-items">
+            </tbody>
+          </table>
+          <h5 class="text-end">Total: R$ <span id="cart-total">0.00</span></h5>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <button id="finish-button" class="btn btn-dourado">Finalizar Compra</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/bootstrap.bundle.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+
+</html>

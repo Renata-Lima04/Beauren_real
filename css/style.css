@@ -1,0 +1,316 @@
+.link-dourado {
+  color: #B38B52 !important;
+}
+
+.navbar-rose {
+  background-color: #f4f1ea;
+}
+
+
+.logo-navbar {
+  width: 80px !important;
+  height: auto!important;/* mantém a proporção */
+}
+
+.text-dourado {
+  color: #B38B52 !important;
+}
+.lupa-dourada {
+  color: #B38B52;
+  font-size: 20px;
+}
+/* cor de fundo da lupa */
+.lupa-btn {
+  background-color: #f4f1ea;    
+ 
+  cursor: pointer;              /* muda o cursor para mãozinha */
+}
+
+/* ao passar o mouse, por exemplo */
+.lupa-btn:hover {
+  background-color: #b38b6868;    /* tom mais escuro */
+}
+.form-control:hover {
+  background-color: #b38b6868; /* Exemplo: bege claro */
+  transition: background-color 0.3s ease;
+}
+.form-control:hover {
+  background-color: #b38b6868;
+  
+}
+.navbar .nav-link:hover,
+.navbar .dropdown-item:hover {
+  color: #B38B52 !important;            /* texto dourado */
+  background-color: #b38b6868 !important; /* fundo rosê suave */
+  transition: all 0.3s ease;
+  border-radius: 5px; /* opcional: deixa o efeito mais suave */
+}
+.footer-beauren {
+  background-color: #f4f1ea;
+}
+
+.text-dourado {
+  color: #B38B52 !important;
+}
+
+.link-footer {
+  color: #B38B52;
+  text-decoration: none;
+}
+
+.link-footer:hover {
+  color: #a67c3c;
+  text-decoration: underline;
+}
+
+.btn-dourado {
+  background-color: #B38B52;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-dourado:hover {
+  background-color: #a67c3c;
+}
+.footer-beauren {
+  background-color: #F4F1EA; /* rosê claro, como no restante do site */
+  width: 100%;
+}
+
+.text-dourado {
+  color: #B38B52 !important;
+}
+
+.link-footer {
+  color: #B38B52;
+  text-decoration: none;
+}
+
+.link-footer:hover {
+  color: #a67c3c;
+  text-decoration: underline;
+}
+
+.btn-dourado {
+  background-color: #B38B52;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-dourado:hover {
+  background-color: #a67c3c;
+}
+.icon-footer {
+  font-size: 28px;              /* tamanho maior */
+  color: #B38B52;               /* dourado */
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.icon-footer:hover {
+  color: #a67c3c;               /* dourado mais escuro no hover */
+}
+.sidebar-beauren {
+  width: 250px;
+  height: 100vh;
+  background-color: #F4F1EA;
+}
+
+.link-dourado {
+  color: #B38B52 !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.link-dourado:hover,
+.link-dourado.active {
+  background-color: #F4F1EA;
+  color: #a67c3c !important;
+  border-radius: 5px;
+}
+
+.text-dourado {
+  color: #B38B52;
+}
+.meu-carousel {
+  /*max-height: 400px; /* ou o valor que você quiser */
+  overflow: hidden;  /* oculta o excesso */
+}
+
+.meu-carousel img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain; /* exibe a imagem inteira, sem cortar */
+  background-color: #fff; /* ou #F4F1EA, evita fundo preto */
+}
+.carousel-item img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+  background-color: #F4F1EA; /* evita fundo escuro nas laterais */
+}
+.carousel-inner {
+  max-height: 500px;
+}
+.card-img-top {
+  height: 200px;           /* define uma altura padrão para todas as imagens */
+  object-fit: cover;       /* faz a imagem “cobrir” a área sem deformar */
+  width: 100%;             /* garante que ocupe toda a largura */
+}
+
+  .titulo-secao {
+    font-family: 'Playfair Display', serif;
+    color: #B38B52;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .btn-dourado {
+    background-color: #B38B52;
+    color: white;
+    border: none;
+  }
+
+  .btn-dourado:hover {
+    background-color: #ffffff;
+    color: #b38b52;
+  }
+
+  .btn-outline-dourado {
+    color: #B38B52;
+    border: 2px solid #B38B52;
+    background-color: transparent;
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline-dourado:hover {
+    background-color: #B38B52;
+    color: white;
+  }
+
+  .card-borda-dourada {
+    border: none;
+    box-shadow: 0 0 8px rgba(179, 139, 82, 0.4);
+    border-radius: 8px;
+  }
+ .card-img-top {
+  height: 250px;            /* Define altura fixa */
+  width: 100%;              /* Ocupa toda a largura do card */
+  object-fit: cover;        /* Corta a imagem sem distorcer */
+  object-position: center;  /* Centraliza o corte da imagem */
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+/* —————————————————————————————
+   Carrossel Novidades: Cards
+   ————————————————————————————— */
+#carouselNovidades .card {
+  /* Borda dourada suave, visível em todos os lados */
+  border: 2px solid rgba(179, 139, 82, 0.8) !important;
+  border-radius: 8px;
+  overflow: hidden;             /* garante que a imagem não “vaze” da borda */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background-color: #fff;       /* garante contraste com fundo do site */
+}
+
+/* —————————————————————————————
+   Carrossel Novidades: Imagens
+   ————————————————————————————— */
+#carouselNovidades .card-img-top {
+  height: 200px;                /* fixa altura uniforme */
+  width: 100%;
+  object-fit: cover;            /* preenche sem distorcer */
+  object-position: center;
+}
+
+/* —————————————————————————————
+   Opcional: destacar cantos (primeiro e último card)
+   ————————————————————————————— */
+#carouselNovidades .carousel-item .col-md-3:first-child .card,
+#carouselNovidades .carousel-item .col-md-3:last-child .card {
+  border-color: #B38B52 !important;      /* dourado puro */
+  box-shadow: 0 4px 12px rgba(179,139,82,0.4);
+}
+/* Container relativo para o carrossel */
+#carouselNovidades {
+  position: relative;
+}
+
+/* Posicionamento e visibilidade das setas */
+#carouselNovidades .carousel-control-prev,
+#carouselNovidades .carousel-control-next {
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  height: auto;
+  opacity: 1 !important;      /* sempre visível, não só ao passar o mouse */
+  z-index: 2;                 /* acima das imagens */
+}
+
+/* Puxe as setas para fora do contêiner de imagens */
+#carouselNovidades .carousel-control-prev {
+  left: -30px;
+}
+
+#carouselNovidades .carousel-control-next {
+  right: -30px;
+}
+
+/* Fundo semitransparente e círculo para as setas, facilitando a leitura */
+#carouselNovidades .carousel-control-prev-icon,
+#carouselNovidades .carousel-control-next-icon {
+  background-color: #B38B52;
+  background-size: 1.5rem 1.5rem;
+  border-radius: 50%;
+  padding: 8px;
+}
+/* Ajuste do badge do carrinho */
+#cart-button { background: none; border: none; }
+#cart-count { font-size: .75rem; }
+
+/* Exemplo de estilo do modal */
+.modal-body {
+   max-height: 400px; overflow-y: auto; 
+  }
+
+/* Ícone do carrinho em dourado */
+#cart-button .bi-cart-fill {
+  color: #B38B52 !important;
+}
+
+/* Fundo do botão do carrinho (opcional) */
+#cart-button {
+  background-color: #F4F1EA;   /* rosê claro */
+  border: none;                /* sem borda extra */
+  padding: 8px;                /* ajuste de tamanho */
+  border-radius: 4px;          /* cantos arredondados */
+}
+/* cor de fundo da badge (bolinha) */
+#cart-count {
+  background-color: #B38B52 !important;
+  color: white;   /* garante que o número fique legível */
+}
+/* Fundo de toda a página do carrinho */
+.bg-carrinho {
+  background-color: #F4F1EA;  /* rosê claro da marca */
+}
+
+/* Títulos e destaques */
+.text-dourado {
+  color: #B38B52 !important;
+}
+
+/* Botão de finalizar */
+.btn-dourado {
+  background-color: #B38B52;
+  color: white;
+  border: none;
+}
+.btn-dourado:hover {
+  background-color: #a67c3c;
+}
